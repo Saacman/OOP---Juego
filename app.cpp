@@ -11,12 +11,26 @@ App::App() : window(" DEMO ") {
 void App::Update() {
     window.Update(); // Linea importante, sin ella la ventana no responde
 
-    const int MovePerSec = 100; //Pixeles por moverse por segundo
-    const float frameMove = MovePerSec * dTime; //Pixeles que se moverá por fraccion de segundo
+    const int Speed = 100; //Pixeles por moverse por segundo
+    float frameMove = Speed * dTime; //Pixeles que se moverá por fraccion de segundo
+
     //const sf::Vector2f& spritePos = vikingSprite.getPosition();
     //vikingSprite.setPosition(spritePos.x + frameMove, spritePos.y);
-    // move(x,y) evita tener que llamar a get position 3 veces
-    vikingSprite.move(frameMove,0);
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+        vikingSprite.move(0, -frameMove);
+        //player.setTextureRect(sf::IntRect(counter * 32,    0, 32, 48));
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+        vikingSprite.move(0, frameMove);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        vikingSprite.move(frameMove, 0);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        vikingSprite.move(-frameMove, 0);
+    }
+
 }
 void App::LateUpdate() { }
 
