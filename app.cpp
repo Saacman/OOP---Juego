@@ -17,17 +17,17 @@ void App::Update() {
     //const sf::Vector2f& spritePos = vikingSprite.getPosition();
     //vikingSprite.setPosition(spritePos.x + frameMove, spritePos.y);
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         vikingSprite.move(0, -frameMove);
         //player.setTextureRect(sf::IntRect(counter * 32,    0, 32, 48));
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         vikingSprite.move(0, frameMove);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         vikingSprite.move(frameMove, 0);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         vikingSprite.move(-frameMove, 0);
     }
 

@@ -13,6 +13,7 @@ void Window::Update() {
     }
     // Salir al presionar esc
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) m_target.close();
+    
 }
 
 void Window::BeginDraw() {
