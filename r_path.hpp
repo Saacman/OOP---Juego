@@ -6,7 +6,7 @@ class ResourcePath {
 public:
     ResourcePath();
 
-    inline const std::string& Get() // 1
+    inline const std::string& Get()
     {
         return path;
     }
