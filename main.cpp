@@ -4,6 +4,7 @@ int main() {
     App app;
 
     while (app.IsRunning()) {
+        app.captureInput();
         app.Update();
         app.LateUpdate();
         app.Draw();
