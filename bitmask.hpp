@@ -6,7 +6,7 @@
 class BitMask {
 public:
     BitMask();
-    BitMask(BitMask& other);
+    BitMask(const BitMask& original);
     // Metodos para obtener y modificar la mascara
     //void setMask(BitMask& other);
     uint32_t getMask() const;

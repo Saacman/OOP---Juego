@@ -2,13 +2,8 @@
 
 BitMask::BitMask() : m_bits(0) { }
 
-// Metodos para obtener y modificar la mascara
-// setMask es un constructor copia?
-// void BitMask::setMask(BitMask& other) {
-//     m_bits = other.GetMask();
-// }
-BitMask::BitMask(BitMask& other) {
-    m_bits = other.GetMask();
+BitMask::BitMask(const BitMask& original) {
+    m_bits = original.getMask();
 }
 
 uint32_t BitMask::getMask() const {
