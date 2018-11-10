@@ -17,19 +17,23 @@ void App::Update() {
     //const sf::Vector2f& spritePos = vikingSprite.getPosition();
     //vikingSprite.setPosition(spritePos.x + frameMove, spritePos.y);
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        vikingSprite.move(0, -frameMove);
-        //player.setTextureRect(sf::IntRect(counter * 32,    0, 32, 48));
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        vikingSprite.move(0, frameMove);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        vikingSprite.move(frameMove, 0);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        vikingSprite.move(-frameMove, 0);
-    }
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+    //     vikingSprite.move(0, -frameMove);
+    //     //player.setTextureRect(sf::IntRect(counter * 32,    0, 32, 48));
+    // }
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+    //     vikingSprite.move(0, frameMove);
+    // }
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+    //     vikingSprite.move(frameMove, 0);
+    // }
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+    //     vikingSprite.move(-frameMove, 0);
+    // }
+    if (input.isKPressed(Input::Key::Up)) vikingSprite.move(0, -frameMove);
+    if (input.isKPressed(Input::Key::Down)) vikingSprite.move(0, frameMove);
+    if (input.isKPressed(Input::Key::Right)) vikingSprite.move(frameMove, 0);
+    if (input.isKPressed(Input::Key::Left)) vikingSprite.move(-frameMove, 0);
 
 }
 void App::LateUpdate() { }
@@ -48,4 +52,8 @@ bool App::IsRunning() const {
 
 void App::getdTime() {
     dTime = clock.restart().asSeconds();
+}
+
+void App::captureInput() {
+    input.Update();
 }
