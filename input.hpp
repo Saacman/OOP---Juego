@@ -16,9 +16,10 @@ public:
     };
     bool isKPressed(Key code); // Retorna true si la tecla esta presionada
     bool isKDown(Key code); // Retorna true si la tecla fue presionada
-    bool isKUp(key code); // Retorna true si la tecla dejo de ser presionada
+    bool isKUp(Key code); // Retorna true si la tecla dejo de ser presionada
     void Update();
 private:
     BitMask m_keys;
     BitMask m_lastKeys;
-}
+};
+#endif
