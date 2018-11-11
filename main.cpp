@@ -8,7 +8,7 @@ int main() {
         app.Update();
         app.LateUpdate();
         app.Draw();
-        app. getdTime();
+        app.getdTime();
     }
     return 0;
 }
