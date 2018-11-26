@@ -26,6 +26,8 @@ void FSM::Draw(Window& window) {
 // Añadir estados a la FSM, retorna su id
 unsigned int FSM::Add(std::shared_ptr<State> state) {
     auto inserted = m_states.insert(std::make_pair(insertedStateID, state));
+    // Revisar acceso
+    //inserted.second->init();
     inserted.first->second->init();
     return insertedStateID++;
 }
