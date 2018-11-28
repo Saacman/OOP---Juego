@@ -1,13 +1,12 @@
 #include "splashscreen.hpp"
- SplashScreen(ResourcePath& Path, FSM& fsm, Window& window) : FSM(sceneStateMachine), ResourcePath(Path),
-window(window), switchToState(0), currentSeconds(0.f),showForSeconds(3.f)
-{ }
+SplashScreen::SplashScreen(ResourcePath& path, FSM& fsm, Window& window) : fsm(fsm), path(path),
+window(window), switchToState(0), elapsed(0.f), duration(3.f) { }
 //La duracion de la splash screen es 3 segundos
 
 void SplashScreen::init() {
 	// Inicializando los recursos de la splash screen
 
-    splashTexture.loadFromFile(workingDir.Get() + "mylog.png");
+    splashTexture.loadFromFile(path.Get() + "splash.png");
     splashSprite.setTexture(splashTexture);
     sf::FloatRect spriteSize = splashSprite.getLocalBounds();
 
@@ -18,31 +17,27 @@ void SplashScreen::init() {
 
     sf::Vector2u wCenter = window.GetCentre();
 
-	// Positions sprite in centre of screen:
+	// Coloca el sprite al centro de la pantalla
     splashSprite.setPosition(wCenter.x, wCenter.y);
 }
 
 void SplashScreen::activate() {
-	// Resets the currentSeconds count whenever the scene is activated.
-	currentSeconds = 0.f;
+	// Reinicia el contador al iniciar el estado
+	elapsed= 0.f;
 }
 
 void SplashScreen::terminate() { }
 
-void SplashScreen::SetSwitchToScene(unsigned int id) {
-	// Stores the id of the scene that we will transition to.
+void SplashScreen::SetSwitchToState(unsigned int id) {
+	// Almacena el id del estado al que pasará al terminar
     switchToState = id;
 }
 
 void SplashScreen::Update(float dTime)
 {
-    currentSeconds += dTime;
+    elapsed += dTime;
 
-    if(currentSeconds >= showForSeconds)
-    {
-		// Switches states.
-        fsm.SwitchTo(switchToState);
-    }
+    if(elapsed >= duration) fsm.SwitchTo(switchToState);
 }
 
 void SplashScreen::Draw(Window& window)

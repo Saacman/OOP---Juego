@@ -4,16 +4,15 @@
 #include<SFML/Graphics.hpp>
 #include "state.hpp"
 #include "fsm.hpp"
-#include "WorkingDirectory.hpp"
+#include "r_path.hpp"
 
 class SplashScreen : public State
 {
 public:
-    SplashScreen(ResourcePath& Path, FSM& fsm, Window& window);
+    SplashScreen(ResourcePath& path, FSM& fsm, Window& window);
 
     void init() override;
     void terminate() override;
-
     void activate() override;
 
     void SetSwitchToState(unsigned int id);
@@ -25,13 +24,13 @@ private:
     sf::Texture splashTexture;
     sf::Sprite splashSprite;
 
-    ResourcePath& Path;
+    ResourcePath& path;
     FSM& fsm;
     Window& window;
 
-    float showForSeconds;
+    float duration;
 
-    float currentSeconds;
+    float elapsed;
 
     unsigned int switchToState;
 };
