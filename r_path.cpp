@@ -1,5 +1,6 @@
 #include "r_path.hpp"
 
 ResourcePath::ResourcePath() {
-    path = "./";
+    path = "Resources/Textures/";
+    //path = "./";
 }

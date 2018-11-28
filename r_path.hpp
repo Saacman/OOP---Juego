@@ -10,6 +10,10 @@ public:
     {
         return path;
     }
+    // inline const std::string& GetTextures()
+    // {
+    //     return "Resources/Textures/";
+    // }
 private:
     std::string path;
 };
