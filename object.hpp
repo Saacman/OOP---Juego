@@ -1,11 +1,11 @@
-#ifndef Object_hpp
-#define Object_hpp
-#include<iostream>
-#include<memory>
-#include "Window.hpp"
+#ifndef OBJECT_HPP
+#define OBJECT_HPP
+#include <iostream>
+#include <memory>
+#include "window.hpp"
 
-#include<vector>
-#include "Component.hpp"
+#include <vector>
+#include "component.hpp"
 #include "C_Transform.hpp"
 
 class Object
@@ -21,18 +21,20 @@ public:
     void LateUpdate(float deltaTime);
     void Draw(Window& window);
 
-
+    // Funcion plantilla.
     template <typename T> std::shared_ptr<T> AddComponent()
     {
-        static_assert(std::is_base_of<Component, T>::value,"T must derive from Component");
-
-        for (auto& exisitingComponent : components)
-        {
+        // Comprueba que solo se añadan clases derivadas de Component. Se comprueba en tiempo de ejecución.
+        static_assert(std::is_base_of<Component, T>::value,"T se debe derivar de Component");
+        // revisar si no tenemos algun componente de ese tipo
+        for (auto& exisitingComponent : components) {
+            // Evitar añadir el mismo componente deo veces
             if (std::dynamic_pointer_cast<T>(exisitingComponent))
             {
                 return std::dynamic_pointer_cast<T>(exisitingComponent);
             }
         }
+        // Lo añadimos
         std::shared_ptr<T> newComponent = std::make_shared<T>(this);
         components.push_back(newComponent);
 
