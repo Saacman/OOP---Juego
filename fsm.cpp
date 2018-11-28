@@ -1,6 +1,6 @@
 #include "fsm.hpp"
 // Constructor por defecto
-FSM::FSM() : m_states(0), currentState(0) { }
+FSM::FSM() : states(0), currentState(0) { }
 
 void FSM::ProcessInput() {
     if(currentState) {
@@ -23,19 +23,19 @@ void FSM::Draw(Window& window) {
     }
 }
 
-// Añadir estados a la FSM, retorna su id
+// Añadir estados a la FSM, retorna el id del estado insertado
 unsigned int FSM::Add(std::shared_ptr<State> state) {
-    auto inserted = m_states.insert(std::make_pair(insertedStateID, state));
-    // Revisar acceso
-    //inserted.second->init();
-    inserted.first->second->init();
+    auto inserted = states.insert(std::make_pair(insertedStateID, state));
+
+    //inserted.first->second->init();
+    state->init();
     return insertedStateID++;
 }
 
 // Cambiar al estado dado el id
 void FSM::SwitchTo(unsigned int id) {
-    auto hold = m_states.find(id);
-    if(hold != m_states.end()) {
+    auto hold = states.find(id);
+    if(hold != states.end()) {
 
         if(currentState) currentState->deactivate();
 
@@ -47,14 +47,14 @@ void FSM::SwitchTo(unsigned int id) {
 
 // Remover estado de la FSM
 void FSM::Remove(unsigned int id) {
-    auto hold = m_states.find(id);
-    if(hold != m_states.end()) {
+    auto hold = states.find(id);
+    if(hold != states.end()) {
 
         if(currentState == hold->second) currentState = nullptr;
 
         hold -> second -> terminate();
 
         currentState->activate();
-        m_states.erase(hold);
+        states.erase(hold);
     }
 }
