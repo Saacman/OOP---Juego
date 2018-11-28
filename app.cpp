@@ -1,47 +1,30 @@
 #include "app.hpp"
 
-App::App() : window(" DEMO ") {
-    //vikingTxt.loadFromFile(wdir.Get() + "viking.png");
-    vikingTxt.loadFromFile("Resources/Textures/viking.png");
-	vikingSprite.setTexture(vikingTxt);
-    //vikingSprite.setTextureRect(sf::IntRect(1,1,30,30));
+App::App() : window(" Proyecto Final ") {
+    // Creamos dos estados
+    std::shared_ptr<SplashScreen> splashScreen = std::make_shared<SplashScreen>(path, fsm, window);
+    std::shared_ptr<GameState> gameState = std::make_shared<GameState>(path);
+    //Los añadimos a la FSM
+    unsigned int splashScreenID = fsm.Add(splashScreen);
+    unsigned int gameStateID = fsm.Add(gameState);
+    //Configuramos la splash
+    splashScreen->SetSwitchToState(gameStateID);
+    fsm.SwitchTo(splashScreenID);
     dTime = clock.restart().asSeconds();
 }
 
 void App::Update() {
     window.Update(); // Linea importante, sin ella la ventana no responde
-
-    const int Speed = 100; //Pixeles por moverse por segundo
-    float frameMove = Speed * dTime; //Pixeles que se moverá por fraccion de segundo
-
-    //const sf::Vector2f& spritePos = vikingSprite.getPosition();
-    //vikingSprite.setPosition(spritePos.x + frameMove, spritePos.y);
-
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-    //     vikingSprite.move(0, -frameMove);
-    //     //player.setTextureRect(sf::IntRect(counter * 32,    0, 32, 48));
-    // }
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-    //     vikingSprite.move(0, frameMove);
-    // }
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-    //     vikingSprite.move(frameMove, 0);
-    // }
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-    //     vikingSprite.move(-frameMove, 0);
-    // }
-    if (input.isKPressed(Input::Key::Up)) vikingSprite.move(0, -frameMove);
-    if (input.isKPressed(Input::Key::Down)) vikingSprite.move(0, frameMove);
-    if (input.isKPressed(Input::Key::Right)) vikingSprite.move(frameMove, 0);
-    if (input.isKPressed(Input::Key::Left)) vikingSprite.move(-frameMove, 0);
-
+    fsm.Update(dTime);
 }
-void App::LateUpdate() { }
+void App::LateUpdate() {
+    fsm.LateUpdate(dTime);
+}
 
 void App::Draw() {
     window.BeginDraw();
 
-    window.Draw(vikingSprite);
+    fsm.Draw(window);
 
     window.EndDraw();
 }
@@ -50,10 +33,10 @@ bool App::IsRunning() const {
     return window.IsOpen();
 }
 
-void App::getdTime() {
+void App::GetdTime() {
     dTime = clock.restart().asSeconds();
 }
-
-void App::captureInput() {
-    input.Update();
+void App::CaptureInput()
+{
+    fsm.ProcessInput();
 }

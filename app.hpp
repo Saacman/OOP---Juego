@@ -4,25 +4,29 @@
 #include "window.hpp"
 #include "r_path.hpp"
 #include "input.hpp"
+#include "fsm.hpp"
+#include "splashscreen.hpp"
+#include "gamestate.hpp"
 
 class App {
 public:
     App();
+
     void Update();
     void LateUpdate();
     void Draw();
+
     bool IsRunning() const;
-    void getdTime();
-    void captureInput();
+    void GetdTime();
+    void CaptureInput();
 private:
     Window window;
+
     sf::Clock clock;
     float dTime;
-    Input input;
 
-    //ResourcePath wdir;
-    sf::Texture vikingTxt;
-    sf::Sprite vikingSprite;
+    ResourcePath path;
+    FSM fsm;
 };
 
 #endif
