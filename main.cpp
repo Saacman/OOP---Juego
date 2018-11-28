@@ -12,4 +12,5 @@ int main() {
     }
     return 0;
 }
-// g++ -std=c++11 -o test main.cpp app.cpp window.cpp r_path.cpp input.cpp bitmask.cpp gamestate.cpp fsm.cpp splashscreen.cpp -lsfml-graphics -lsfml-window -lsfml-system
+// TODO: MakeFile
+// g++ -std=c++14 -o test2 main.cpp app.cpp window.cpp r_path.cpp input.cpp bitmask.cpp gamestate.cpp fsm.cpp splashscreen.cpp playercontrol.cpp sprite.cpp object.cpp transform.cpp -lsfml-graphics -lsfml-window -lsfml-system
