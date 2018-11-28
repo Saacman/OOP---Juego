@@ -4,11 +4,11 @@ int main() {
     App app;
 
     while (app.IsRunning()) {
-        app.captureInput();
+        app.CaptureInput();
         app.Update();
         app.LateUpdate();
         app.Draw();
-        app.getdTime();
+        app.GetdTime();
     }
     return 0;
 }
