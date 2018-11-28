@@ -5,6 +5,8 @@
 #include "r_path.hpp"
 #include "input.hpp"
 #include "state.hpp"
+#include "object.hpp"
+#include "sprite.hpp"
 
 class GameState : public State {
 public:
@@ -18,8 +20,7 @@ public:
     void Draw(Window& window) override;
 
 private:
-    sf::Texture vikingTexture;
-    sf::Sprite vikingSprite;
+    std::shared_ptr<Object> player;
 
     ResourcePath& path;
     Input input;
