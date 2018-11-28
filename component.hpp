@@ -5,8 +5,7 @@
 // Forward declaration. El compilador aún no tiene la definición
 class Object;
 // Clase base de todos los componentes
-class Component
-{
+class Component {
 public:
     Component(Object* owner) : owner(owner){}
 
