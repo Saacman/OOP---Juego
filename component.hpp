@@ -2,7 +2,7 @@
 #define COMPONENT_HPP
 
 #include "window.hpp"
-// Forward declaration. El compilador aúnno tiene la definición
+// Forward declaration. El compilador aún no tiene la definición
 class Object;
 // Clase base de todos los componentes
 class Component
