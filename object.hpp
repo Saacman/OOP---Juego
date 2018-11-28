@@ -6,7 +6,7 @@
 
 #include <vector>
 #include "component.hpp"
-#include "C_Transform.hpp"
+#include "transform.hpp"
 
 class Object
 {
@@ -54,7 +54,7 @@ public:
         return nullptr;
     };
 
-    std::shared_ptr<C_Transform> transform;
+    std::shared_ptr<Transform> transform;
 
 private:
     std::vector<std::shared_ptr<Component>> components;

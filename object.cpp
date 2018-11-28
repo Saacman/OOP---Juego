@@ -2,7 +2,7 @@
 
 Object::Object()
 {
-    transform = AddComponent<C_Transform>();
+    transform = AddComponent<Transform>();
 }
 
 
