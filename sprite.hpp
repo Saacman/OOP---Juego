@@ -2,12 +2,12 @@
 #define SPRITE_HPP
 
 #include "component.hpp"
-#include "C_Transform.hpp"
+#include "transform.hpp"
 
 class Sprite : public Component
 {
 public:
-    C_Sprite(Object* owner);
+    Sprite(Object* owner);
 
     void Load(const std::string& filePath);
 
