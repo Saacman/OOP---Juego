@@ -13,6 +13,7 @@ public:
     void Draw(const sf::Drawable& drawable);
     void EndDraw();
     bool IsOpen() const;
+    sf::Vector2u GetCentre() const;
 private:
     sf::RenderWindow m_target;
 };

@@ -13,7 +13,7 @@ void Window::Update() {
     }
     // Salir al presionar esc
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) m_target.close();
-    
+
 }
 
 void Window::BeginDraw() {
@@ -30,4 +30,10 @@ void Window::EndDraw() {
 
 bool Window::IsOpen() const {
     return m_target.isOpen();
+}
+sf::Vector2u Window::GetCentre() const
+{
+    sf::Vector2u size = m_target.getSize();
+
+    return sf::Vector2u(size.x / 2, size.y / 2);
 }
