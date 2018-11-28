@@ -1,10 +1,10 @@
-#ifndef Component_hpp
-#define Component_hpp
+#ifndef COMPONENT_HPP
+#define COMPONENT_HPP
 
-#include "Window.hpp"
-
-class Object; // 1
-
+#include "window.hpp"
+// Forward declaration. El compilador aúnno tiene la definición
+class Object;
+// Clase base de todos los componentes
 class Component
 {
 public:
@@ -21,4 +21,4 @@ protected:
     Object* owner;
 };
 
-#endif /* Component_hpp */
+#endif
