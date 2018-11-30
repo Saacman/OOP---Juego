@@ -3,11 +3,11 @@
 
 #include "window.hpp"
 // Forward declaration. El compilador aún no tiene la definición
-class Object;
+class Entity;
 // Clase base de todos los componentes
 class Component {
 public:
-    Component(Object* owner) : owner(owner){}
+    Component(Entity* owner) : owner(owner){}
 
     virtual void Awake() {};
     virtual void Start() {};
@@ -17,7 +17,7 @@ public:
     virtual void Draw(Window& window) {};
 
 protected:
-    Object* owner;
+    Entity* owner;
 };
 
 #endif

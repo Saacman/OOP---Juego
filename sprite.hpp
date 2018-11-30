@@ -7,7 +7,7 @@
 class Sprite : public Component
 {
 public:
-    Sprite(Object* owner);
+    Sprite(Entity* owner);
 
     void Load(const std::string& filePath);
 

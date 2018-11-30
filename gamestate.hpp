@@ -5,7 +5,7 @@
 #include "r_path.hpp"
 #include "input.hpp"
 #include "state.hpp"
-#include "object.hpp"
+#include "entity.hpp"
 #include "sprite.hpp"
 #include "playercontrol.hpp"
 
@@ -22,7 +22,7 @@ public:
     void LateUpdate(float dTime) override;
 
 private:
-    std::shared_ptr<Object> player;
+    std::shared_ptr<Entity> player;
 
     ResourcePath& path;
     Input input;

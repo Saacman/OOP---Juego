@@ -1,8 +1,8 @@
 #include "playercontrol.hpp"
-#include "object.hpp"
+#include "entity.hpp"
 
 
-PlayerControl::PlayerControl(Object* owner)	: Component(owner), speed(150) {}
+PlayerControl::PlayerControl(Entity* owner)	: Component(owner), speed(150) {}
 
 void PlayerControl::SetInput(Input* input) {
     this->input = input;

@@ -7,7 +7,7 @@
 class PlayerControl : public Component
 {
 public:
-    PlayerControl(Object* owner);
+    PlayerControl(Entity* owner);
 
     void SetInput(Input* input);
     void SetSpeed(int speed);

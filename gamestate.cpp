@@ -3,9 +3,9 @@
 GameState::GameState(ResourcePath& path) : path(path) {}
 
 void GameState::init() {
-    player = std::make_shared<Object>();
+    player = std::make_shared<Entity>();
 
-    // Añadir componentes al jugador (objeto)
+    // Añadir componentes al jugador (entidad)
     auto sprite = player->AddComponent<Sprite>();
     sprite->Load(path.Get() + "viking.png");
 

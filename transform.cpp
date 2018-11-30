@@ -1,6 +1,6 @@
 #include "transform.hpp"
 
-Transform::Transform(Object* owner): Component(owner), position(0.f, 0.f) { }
+Transform::Transform(Entity* owner): Component(owner), position(0.f, 0.f) { }
 
 void Transform::SetPosition(float x, float y)
 {

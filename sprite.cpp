@@ -1,7 +1,7 @@
 #include "sprite.hpp"
-#include "object.hpp"
-// Usamos un puntero al dueño de este objeto
-Sprite::Sprite(Object* owner) : Component(owner) {}
+#include "entity.hpp"
+// Usamos un puntero al dueño de este componente
+Sprite::Sprite(Entity* owner) : Component(owner) {}
 // A través del dueño obtenemos su posición
 void Sprite::LateUpdate(float deltaTime)
 {
