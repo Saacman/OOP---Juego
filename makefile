@@ -15,7 +15,7 @@ OBJS += fsm.o
 OBJS += splashscreen.o
 OBJS += playercontrol.o
 OBJS += sprite.o
-OBJS += object.o
+OBJS += entity.o
 OBJS += transform.o
 OBJS += -lsfml-graphics
 OBJS += -lsfml-window
@@ -61,8 +61,8 @@ main: main.cpp
 fsm: fsm.cpp fsm.hpp
 	g++ $(CPPFLAGS) -c fsm.cpp
 
-object: object.cpp object.hpp
-	g++ $(CPPFLAGS) -c object.cpp
+entity: entity.cpp entity.hpp
+	g++ $(CPPFLAGS) -c entity.cpp
 
 clean:
 	-rm *.o
