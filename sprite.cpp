@@ -30,4 +30,6 @@ void Load(int id) {
         sprite.setTexture(*texture);
     }
 }
-void SetTextureAllocator(Resources<sf::Texture>* allocator);
+void SetTextureAllocator(Resources<sf::Texture>* allocator) {
+    this->allocator = allocator;
+}
