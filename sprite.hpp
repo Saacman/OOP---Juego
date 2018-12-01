@@ -18,11 +18,11 @@ public:
 
     void Draw(Window& window) override;//sobrecargamos el metodo draw para poder dibujar nuestro sprite
 
-    void LateUpdate(float deltaTime) override;//Usamos este metodo para obtener sprites en base de nuestra posición 
+    void LateUpdate(float deltaTime) override;//Usamos este metodo para obtener sprites en base de nuestra posición
 
     void SetTextureAllocator(Resources<sf::Texture>* allocator);
 
-    void setTextureRect(intx, int y, int width, int height);
+    void setTextureRect(int x, int y, int width, int height);
     void setTextureRect(const sf::IntRect& rect);
 
 private:

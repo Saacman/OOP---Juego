@@ -1,6 +1,7 @@
 #ifndef APP_HPP
 #define APP_HPP
 
+#include <SFML/Graphics.hpp>
 #include "window.hpp"
 #include "r_path.hpp"
 #include "input.hpp"

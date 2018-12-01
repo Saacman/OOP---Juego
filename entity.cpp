@@ -2,47 +2,31 @@
 
 
 Entity::Entity() : forRemoval(false) {
-{
     transform = AddComponent<Transform>();//Cambia la posición del sprite por intervalos
 }
 
 
 void Entity::Awake() {
-    for(int i = components.size() - 1; i >= 0; i--)
-    {
-        components[i]->Awake();
-    }
+    for(auto& c : components) c->Awake();
 }
 
 
 
 void Entity::Start() {
-    for(int i = components.size() - 1; i >= 0; i--)
-    {
-        components[i]->Start();
-    }
+    for(auto& c : components) c->Start();
 }
 
 
 void Entity::Update(float timeDelta) {
-    for(int i = components.size() - 1; i >= 0; i--)
-    {
-        components[i]->Update(timeDelta);
-    }
+    for(auto& c : components) c->Update(timeDelta);
 }
 
 void Entity::LateUpdate(float timeDelta) {
-    for(int i = components.size() - 1; i >= 0; i--)
-    {
-        components[i]->LateUpdate(timeDelta);
-    }
+    for(auto& c : components) c->LateUpdate(timeDelta);
 }
 
 void Entity::Draw(Window& window) {
-    for(int i = components.size() - 1; i >= 0; i--)
-    {
-        components[i]->Draw(window);
-    }
+    for(auto& c : components) c->Draw(window);
 }
 
 bool Entity::IsForRemoval() {

@@ -11,7 +11,7 @@ public:
     Animation(Entity* owner);
     void Awake() override;
     void Update(float dTime) override;
-    void AddFrames(Status status, std::shared_ptr<Frames> frames);
+    void AddFrames(Status status, std::shared_ptr<Frames> set);
     void setStatus(Status status);
     const Status& getStatus() const;
 private:
@@ -22,5 +22,5 @@ private:
     // Animacion actual
     std::pair<Status, std::shared_ptr<Frames>> currentFrames;
 
-}
+};
 #endif

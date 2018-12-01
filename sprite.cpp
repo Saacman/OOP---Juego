@@ -42,8 +42,8 @@ void Sprite::SetTextureAllocator(Resources<sf::Texture>* allocator) {
     this->allocator = allocator;
 }
 
-void Sprite::setTextureRect(intx, int y, int width, int height) {
-    sprite.setTextureRect(sf::IntRect(x,y,width, height));
+void Sprite::setTextureRect(int x, int y, int width, int height) {
+    sprite.setTextureRect(sf::IntRect(x, y, width, height));
 }
 void Sprite::setTextureRect(const sf::IntRect& rect) {
     sprite.setTextureRect(rect);

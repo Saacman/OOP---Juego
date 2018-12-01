@@ -13,7 +13,7 @@ struct FrameData {
     float duration; // duración en pantalla
 };
 
-class Frames() {
+class Frames {
 public:
     Frames();
 
@@ -25,7 +25,7 @@ public:
 private:
     void incrementFrame();
     std::vector<FrameData> frames; // todos los frames guardados
-    int currentIndex; // Frame actual
+    unsigned int currentIndex; // Frame actual
     float elapsedTime;
 
 };

@@ -18,6 +18,8 @@ OBJS += sprite.o
 OBJS += entity.o
 OBJS += transform.o
 OBJS += collection.o
+OBJS += frames.o
+OBJS += animation.cpp
 OBJS += -lsfml-graphics
 OBJS += -lsfml-window
 OBJS += -lsfml-system
@@ -67,6 +69,12 @@ entity: entity.cpp entity.hpp
 
 collection: collection.cpp collection.hpp
 	g++ $(CPPFLAGS) -c collection.cpp
+
+frame: frames.cpp frames.hpp
+	g++ $(CPPFLAGS) -c frames.cpp
+
+animation: animation.cpp animation.hpp component.hpp
+	g++ $(CPPFLAGS) -c animation.cpp
 
 clean:
 	-rm *.o
