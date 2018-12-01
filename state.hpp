@@ -5,7 +5,7 @@
 
 class State {
 public:
-    // Se llama una vez para crear un estado inicialmente
+    // Se llama una vez para inicializar los estados 
     virtual void init() = 0;
     // LLamado cuando se destruye un estados
     virtual void terminate() = 0;
