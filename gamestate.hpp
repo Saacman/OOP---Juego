@@ -9,6 +9,8 @@
 #include "sprite.hpp"
 #include "playercontrol.hpp"
 #include "resources.hpp"
+#include "collection.hpp"
+#include "animation.hpp"
 
 class GameState : public State {
 public:
@@ -23,9 +25,11 @@ public:
     void LateUpdate(float dTime) override;
 
 private:
-    std::shared_ptr<Entity> player;
+    //std::shared_ptr<Entity> player;
     ResourcePath& path;
     Resources<sf::Texture>& textureAllocator;
     Input input;
+    Collection entities;
+
 };
 #endif
