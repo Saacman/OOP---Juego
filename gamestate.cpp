@@ -1,14 +1,15 @@
 #include "gamestate.hpp"
 
-GameState::GameState(ResourcePath& path) : path(path) {}
+GameState::GameState(ResourcePath& path, Resources<sf::Texture>& textureAllocator)
+ : path(path), textureAllocator(textureAllocator) {}
 
 void GameState::init() {
     player = std::make_shared<Entity>();
 
     // Añadir componentes al jugador (entidad)
     auto sprite = player->AddComponent<Sprite>();
+    sprite->SetTextureAllocator(&textureAllocator);
     sprite->Load(path.Get() + "viking.png");
-
     auto movement = player->AddComponent<PlayerControl>();
     movement->SetInput(&input);
 

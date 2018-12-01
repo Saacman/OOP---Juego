@@ -21,7 +21,7 @@ public:
     void CaptureInput();
 private:
     Window window;
-
+    Resources<sf::Texture> textureAllocator;
     sf::Clock clock;
     float dTime;
 

@@ -8,10 +8,11 @@
 #include "entity.hpp"
 #include "sprite.hpp"
 #include "playercontrol.hpp"
+#include "resources.hpp"
 
 class GameState : public State {
 public:
-    GameState(ResourcePath& path);
+    GameState(ResourcePath& path, Resources<sf::Texture>& textureAllocator);
 
     void init() override;
     void terminate() override;
@@ -23,8 +24,8 @@ public:
 
 private:
     std::shared_ptr<Entity> player;
-
     ResourcePath& path;
+    Resources<sf::Texture>& textureAllocator;
     Input input;
 };
 #endif

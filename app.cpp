@@ -2,8 +2,8 @@
 
 App::App() : window(" Proyecto Final ") {
     // Creamos dos estados
-    std::shared_ptr<SplashScreen> splashScreen = std::make_shared<SplashScreen>(path, fsm, window);
-    std::shared_ptr<GameState> gameState = std::make_shared<GameState>(path);
+    std::shared_ptr<SplashScreen> splashScreen = std::make_shared<SplashScreen>(path, fsm, window, textureAllocator);
+    std::shared_ptr<GameState> gameState = std::make_shared<GameState>(path, textureAllocator);
     //Los añadimos a la FSM
     unsigned int splashScreenID = fsm.Add(splashScreen);
     unsigned int gameStateID = fsm.Add(gameState);

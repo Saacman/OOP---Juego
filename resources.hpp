@@ -22,7 +22,7 @@ public:
         if(!element->loadFromFile(filePath)) return -1;
 
         // finalmente si no se entraron en los otros dos cas, se inserta en el map
-        elements.insert(std::make_pair(filePath, std:: make_pair(currentID, resource)));
+        elements.insert(std::make_pair(filePath, std:: make_pair(currentID, element)));
 
         // Retornamos el ID asignado y lo incrementamos para el siguiente elemento
         return currentID++;
@@ -44,7 +44,7 @@ public:
         return nullptr;
     }
 private:
-    int currentID
+    int currentID;
     std::map<std::string, std::pair<int, std::shared_ptr<T>>> elements;
 };
 #endif
