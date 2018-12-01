@@ -2,7 +2,7 @@
 
 Entity::Entity()
 {
-    transform = AddComponent<Transform>();
+    transform = AddComponent<Transform>();//Cambia la posición del sprite por intervalos
 }
 
 

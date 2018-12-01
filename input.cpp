@@ -3,6 +3,8 @@
 void Input::Update() {
     m_lastKeys = m_keys;
 
+    //Esto pondrá o limpiará un bit dependiendo de
+    //si alguna de las claves esta siendo presinada, esto llama a una función sobrecargada 'setBit' en nuestra clase bitmask
     m_keys.setBit((int)Key::Left, sf::Keyboard::isKeyPressed(sf::Keyboard::Left));
     m_keys.setBit((int)Key::Right, sf::Keyboard::isKeyPressed(sf::Keyboard::Right));
     m_keys.setBit((int)Key::Up, sf::Keyboard::isKeyPressed(sf::Keyboard::Up));

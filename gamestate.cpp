@@ -11,7 +11,7 @@ void GameState::init() {
     sprite->SetTextureAllocator(&textureAllocator);
     sprite->Load(path.Get() + "viking.png");
     auto movement = player->AddComponent<PlayerControl>();
-    movement->SetInput(&input);
+    movement->SetInput(&input);//no olvidar la posicionalidad de la entrada, de otra manera el personaje no se movera
 
 }
 void GameState::terminate() { }
@@ -28,5 +28,5 @@ void GameState::LateUpdate(float dTime) {
     player->LateUpdate(dTime);
 }
 void GameState::Draw(Window& window) {
-    player->Draw(window);
+    player->Draw(window);//Esto dibujará nuestro nuevo componente de sprite
 }

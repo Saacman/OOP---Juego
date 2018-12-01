@@ -37,9 +37,10 @@ void FSM::SwitchTo(unsigned int id) {
     auto hold = states.find(id);
     if(hold != states.end()) {
 
-        if(currentState) currentState->deactivate();
+        if(currentState) currentState->deactivate();//Si nosotros tenemos un estado actual,
+                                                    //nosotros llamaremos el metodo deactive
 
-        currentState = hold->second;
+        currentState = hold->second;//COnfigur el estado actual asegurando que es cargado y dibujado
 
         currentState->activate();
     }
@@ -50,11 +51,14 @@ void FSM::Remove(unsigned int id) {
     auto hold = states.find(id);
     if(hold != states.end()) {
 
-        if(currentState == hold->second) currentState = nullptr;
+        if(currentState == hold->second) currentState = nullptr;//Si el estado no esta siendo removido se llama el estado actual
+                  //Tambien queremos posicionar un puntero null para un estado
+                  //este no es mas largo que update.
 
+        //Nos aseguramos de llamar al metodo terminate del estado que estamos removiendo
         hold -> second -> terminate();
 
         currentState->activate();
-        states.erase(hold);
+        states.erase(hold);//Borra definitivamente el estado actual
     }
 }

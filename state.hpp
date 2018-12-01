@@ -5,7 +5,7 @@
 
 class State {
 public:
-    // Se llama una vez para crear un estado inicialmente
+    // Se llama una vez para crear un estado inicialmente, no hay necesidad de instanciarlo
     virtual void init() = 0;
     // LLamado cuando se destruye un estados
     virtual void terminate() = 0;
@@ -14,6 +14,7 @@ public:
     // Llamado cuando cambia a otro estado
     virtual void deactivate() {}
 
+    //Las siguietnes funciones pueden ser sobrecargadas tanto como sea necesario en nuestros aldeanos
     virtual void ProcessInput() {}
     virtual void Update( float dTime) {}
     virtual void LateUpdate(float dTime) {}
