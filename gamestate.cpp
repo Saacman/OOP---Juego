@@ -13,7 +13,7 @@ void GameState::init() {
 
     // Añadir control
     auto movement = player->AddComponent<PlayerControl>();
-    movement->SetInput(&input);
+    movement->SetInput(&input);//no olvidar la posicionalidad de la entrada, de otra manera el personaje no se movera
     // Añadir Animacion
     auto animation = player->AddComponent<Animation>();
     int playerTextureID = textureAllocator.Add(path.Get() + "viking.png");
@@ -26,6 +26,7 @@ void GameState::init() {
     auto backsprite = background->AddComponent<Sprite>();
     backsprite->SetTextureAllocator(&textureAllocator);
     backsprite->Load(path.Get() + "background.png");
+
 
     // El orden en el que se añaden las entidades es el orden en que se dibujan
     entities.Add(background);
@@ -48,5 +49,8 @@ void GameState::LateUpdate(float dTime) {
     entities.LateUpdate(dTime);
 }
 void GameState::Draw(Window& window) {
-    entities.Draw(window);
+
+    
+
+    entities.Draw(window);//Esto dibujará nuestra coleccion
 }

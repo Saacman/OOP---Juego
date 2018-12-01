@@ -1,7 +1,9 @@
 #include  "entity.hpp"
 
+
 Entity::Entity() : forRemoval(false) {
-    transform = AddComponent<Transform>();
+{
+    transform = AddComponent<Transform>();//Cambia la posición del sprite por intervalos
 }
 
 

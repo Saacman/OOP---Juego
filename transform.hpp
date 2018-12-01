@@ -14,6 +14,7 @@ public:
     void AddPosition(float x, float y);
     void AddPosition(sf::Vector2f pos);
 
+    //Estos metodos de acceso nos permiten conseguir x/y valores por separado
     void SetX(float x);
     void SetY(float y);
 

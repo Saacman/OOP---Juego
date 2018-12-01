@@ -7,10 +7,11 @@
 #include <vector>
 #include "component.hpp"
 #include "transform.hpp"
-
+//Forward declaration. El compilador aún no tiene la definición
 class Entity
 {
 public:
+    //Clase base de todos los componentes
     Entity();
 
     void Awake();

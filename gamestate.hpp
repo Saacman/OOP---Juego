@@ -14,6 +14,7 @@
 
 class GameState : public State {
 public:
+    //Constructor que recibe la locacion de texturas de nuestro estado de juego para el motor
     GameState(ResourcePath& path, Resources<sf::Texture>& textureAllocator);
 
     void init() override;
@@ -27,7 +28,7 @@ public:
 private:
     //std::shared_ptr<Entity> player;
     ResourcePath& path;
-    Resources<sf::Texture>& textureAllocator;
+    Resources<sf::Texture>& textureAllocator;//nosotros almacenamos la referencia de la localidad de una textura
     Input input;
     Collection entities;
 

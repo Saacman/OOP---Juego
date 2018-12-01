@@ -27,6 +27,7 @@ void SplashScreen::activate() {
 	elapsed= 0.f;
 }
 
+//PELIGRO: terminate se debe eliminar
 void SplashScreen::terminate() { }
 
 void SplashScreen::SetSwitchToState(unsigned int id) {

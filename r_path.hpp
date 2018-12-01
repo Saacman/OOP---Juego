@@ -5,7 +5,7 @@
 class ResourcePath {
 public:
     ResourcePath();
-
+    //Obtiene el arreglo cadena de la ubicación raíz
     inline const std::string& Get()
     {
         return path;
