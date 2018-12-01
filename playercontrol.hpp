@@ -4,8 +4,7 @@
 #include "component.hpp"
 #include "input.hpp"
 
-class PlayerControl : public Component
-{
+class PlayerControl : public Component {
 public:
     PlayerControl(Entity* owner);
 

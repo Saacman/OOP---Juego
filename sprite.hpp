@@ -22,10 +22,14 @@ public:
 
     void SetTextureAllocator(Resources<sf::Texture>* allocator);
 
+    void setTextureRect(intx, int y, int width, int height);
+    void setTextureRect(const sf::IntRect& rect);
+
 private:
     //sf::Texture texture;
     Resources<sf::Texture>* allocator;
     sf::Sprite sprite;
+    int currentTextureID;
 };
 
 #endif

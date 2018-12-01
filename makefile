@@ -17,6 +17,7 @@ OBJS += playercontrol.o
 OBJS += sprite.o
 OBJS += entity.o
 OBJS += transform.o
+OBJS += collection.o
 OBJS += -lsfml-graphics
 OBJS += -lsfml-window
 OBJS += -lsfml-system
@@ -63,6 +64,9 @@ fsm: fsm.cpp fsm.hpp
 
 entity: entity.cpp entity.hpp
 	g++ $(CPPFLAGS) -c entity.cpp
+
+collection: collection.cpp collection.hpp
+	g++ $(CPPFLAGS) -c collection.cpp
 
 clean:
 	-rm *.o

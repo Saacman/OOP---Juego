@@ -22,6 +22,10 @@ public:
     void LateUpdate(float deltaTime);
     void Draw(Window& window);
 
+    // Verificar bandera de eliminación
+    bool IsForRemoval();
+    void Remove();
+
     // Funcion plantilla.
     template <typename T> std::shared_ptr<T> AddComponent()
     {
@@ -59,6 +63,7 @@ public:
 
 private:
     std::vector<std::shared_ptr<Component>> components;
+    bool forRemoval;
 };
 
 #endif
